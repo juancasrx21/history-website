@@ -1,15 +1,374 @@
 /* Global Styles */
+:root {
+    --belize-blue: #0038a8;
+    --belize-red: #ce1126;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
+html, body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: #333;
-    background-color: #f8f8f8;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+    
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Background classes for text containers */
+.text-bg-light {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+}
+.text-bg-dark {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    text-shadow: 1px 1px 2px black;
+}
+.text-bg-light, .text-bg-dark {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Header & Navigation */
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+    
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+    
+    .logo h1 {
+        font-size: 1.5rem;
+        color: var(--belize-blue);
+        font-weight: 700;
+    }
+    
+    .nav-links {
+        display: flex;
+        list-style: none;
+    }
+    
+    .nav-links li {
+        margin-left: 30px;
+    }
+    
+    .nav-links a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+    
+    .nav-links a:hover, .nav-links a.active {
+        color: var(--belize-blue);
+    }
+    
+    /* Animated Gradient Background for Hero Section */
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+    
+    .hero {
+        background: linear-gradient(-45deg, 
+            rgba(206, 17, 38, 0.8), 
+            rgba(255, 255, 255, 0.8), 
+            rgba(0, 56, 168, 0.8), 
+            rgba(0, 0, 0, 0.6));
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+        height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #fff;
+        padding: 0 20px;
+    }
+    
+.hero-content {
+    max-width: 800px;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.text-bg-dark.hero-content {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.white-text-bg {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+}
+
+.content, .overview {
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+    
+    .hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+    
+    .hero h2 {
+        font-size: 1.8rem;
+        font-weight: 400;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+    
+    /* Overview Section */
+.overview {
+    padding: 80px 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+.overview h2 {
+    color: var(--belize-blue);
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+.overview p {
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+.members-list {
+    list-style-position: inside;
+    margin-left: 20px;
+    font-size: 1.1rem;
+}
+    
+    /* Page Header */
+    .page-header {
+        background-color: var(--belize-blue);
+        color: #fff;
+        padding: 60px 0;
+        text-align: center;
+    }
+    
+    .page-header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+    
+    .page-header h2 {
+        font-size: 1.5rem;
+        font-weight: 400;
+    }
+    
+    /* Content Section */
+    .content {
+        padding: 60px 0;
+    }
+    
+    .content h3 {
+        color: var(--belize-blue);
+        margin: 30px 0 15px;
+        font-size: 1.6rem;
+    }
+    
+    .content h4 {
+        color: #333;
+        margin: 20px 0 10px;
+        font-size: 1.3rem;
+    }
+    
+    .content p {
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+    }
+    
+    /* Footer */
+    footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 20px 0;
+    }
+    
+    /* Game Container Styles */
+    .game-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 40px;
+    }
+    
+    .word-puzzle {
+        display: grid;
+        grid-template-columns: repeat(15, 1fr);
+        gap: 2px;
+        margin-bottom: 30px;
+    }
+    
+    .puzzle-cell {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #ddd;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    
+    .puzzle-cell.filled {
+        background-color: var(--belize-blue);
+        color: white;
+    }
+    
+    .puzzle-cell.highlighted {
+        background-color: #ffd700;
+    }
+    
+    .clues-container {
+        margin-top: 30px;
+    }
+    
+    .clues-section {
+        margin-bottom: 20px;
+    }
+    
+    .clues-section h3 {
+        color: var(--belize-blue);
+        margin-bottom: 10px;
+    }
+    
+    .clue-list {
+        list-style-type: none;
+    }
+    
+    .clue-list li {
+        margin-bottom: 10px;
+        cursor: pointer;
+        padding: 5px;
+        border-radius: 5px;
+    }
+    
+    .clue-list li:hover {
+        background-color: #f0f0f0;
+    }
+    
+    .clue-list li.active {
+        background-color: #ffd700;
+    }
+    
+    .game-controls {
+        margin-top: 20px;
+        display: flex;
+        gap: 10px;
+    }
+    
+    .game-btn {
+        padding: 10px 15px;
+        background-color: var(--belize-blue);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 500;
+    }
+    
+    .game-btn:hover {
+        background-color: var(--belize-red);
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        nav {
+            flex-direction: column;
+        }
+        
+        .nav-links {
+            margin-top: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .nav-links li {
+            margin: 5px 10px;
+        }
+        
+        .hero h1 {
+            font-size: 2rem;
+        }
+        
+        .hero h2 {
+            font-size: 1.5rem;
+        }
+        
+        .page-header h1 {
+            font-size: 2rem;
+        }
+        
+        .page-header h2 {
+            font-size: 1.3rem;
+        }
+        
+        .word-puzzle {
+            grid-template-columns: repeat(10, 1fr);
+        }
+        
+    .puzzle-cell {
+        width: 25px;
+        height: 25px;
+        font-size: 12px;
+    }
+}
+    color: #333;
+    background-image: url('');
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .container {
@@ -38,7 +397,7 @@ nav {
 
 .logo h1 {
     font-size: 1.5rem;
-    color: #0056b3;
+    color: var(--belize-blue);
     font-weight: 700;
 }
 
@@ -59,15 +418,15 @@ nav {
 }
 
 .nav-links a:hover, .nav-links a.active {
-    color: #0056b3;
+    color: var(--belize-blue);
 }
 
-/* Hero Section */
+/* Hero Section with new background */
 .hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('background.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('background.jpg');
     background-size: cover;
     background-position: center;
-    height: 500px;
+    height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -78,18 +437,21 @@ nav {
 
 .hero-content {
     max-width: 800px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    border-radius: 10px;
 }
 
 .hero h1 {
     font-size: 2.5rem;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .hero h2 {
     font-size: 1.8rem;
     font-weight: 400;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 /* Overview Section */
@@ -98,7 +460,7 @@ nav {
 }
 
 .overview h2 {
-    color: #0056b3;
+    color: var(--belize-blue);
     margin-bottom: 20px;
     font-size: 1.8rem;
 }
@@ -116,7 +478,7 @@ nav {
 
 /* Page Header */
 .page-header {
-    background-color: #0056b3;
+    background-color: var(--belize-blue);
     color: #fff;
     padding: 60px 0;
     text-align: center;
@@ -138,7 +500,7 @@ nav {
 }
 
 .content h3 {
-    color: #0056b3;
+    color: var(--belize-blue);
     margin: 30px 0 15px;
     font-size: 1.6rem;
 }
@@ -160,6 +522,96 @@ footer {
     color: #fff;
     text-align: center;
     padding: 20px 0;
+}
+
+/* Game Container Styles */
+.game-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.word-puzzle {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    gap: 2px;
+    margin-bottom: 30px;
+}
+
+.puzzle-cell {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.puzzle-cell.filled {
+    background-color: var(--belize-blue);
+    color: white;
+}
+
+.puzzle-cell.highlighted {
+    background-color: #ffd700;
+}
+
+.clues-container {
+    margin-top: 30px;
+}
+
+.clues-section {
+    margin-bottom: 20px;
+}
+
+.clues-section h3 {
+    color: var(--belize-blue);
+    margin-bottom: 10px;
+}
+
+.clue-list {
+    list-style-type: none;
+}
+
+.clue-list li {
+    margin-bottom: 10px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.clue-list li:hover {
+    background-color: #f0f0f0;
+}
+
+.clue-list li.active {
+    background-color: #ffd700;
+}
+
+.game-controls {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.game-btn {
+    padding: 10px 15px;
+    background-color: var(--belize-blue);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.game-btn:hover {
+    background-color: var(--belize-red);
 }
 
 /* Responsive Design */
@@ -192,5 +644,15 @@ footer {
     
     .page-header h2 {
         font-size: 1.3rem;
+    }
+    
+    .word-puzzle {
+        grid-template-columns: repeat(10, 1fr);
+    }
+    
+    .puzzle-cell {
+        width: 25px;
+        height: 25px;
+        font-size: 12px;
     }
 }
